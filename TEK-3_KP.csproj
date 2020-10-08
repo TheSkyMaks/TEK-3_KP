@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>D:\TheSkyMaks\КПИ-ИТС\2 курс - ІТС - ТІ-81\TEK-3_KP\TEK-3_KP.xml</DocumentationFile>
+	<DocumentationFile>TEK-3_KP.xml</DocumentationFile>
   </PropertyGroup>
 
 </Project>
