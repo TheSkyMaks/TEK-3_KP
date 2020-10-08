@@ -5,10 +5,26 @@ using System.Reflection;
 
 namespace TEK_3_KP
 {
+    /// <summary>
+    /// Class "Program" calculate variables what you need for MatLab
+    /// </summary>
+    /// <param name="YourVariant">Variant of your coursework</param>
+    /// <param name="Model">Model of your transistor</param>
+    /// <param name="Ic_max">Maximum collector current</param>
+    /// <param name="Vce_max">Maximum collector-emitter voltage</param>
+    /// <param name="Vbe_max">Maximum base-emitter voltage</param>
+    /// <param name="P_max">Maximum power in the collector-emitter circuit</param>
+    /// <param name="E">EMF power supply</param>
+    /// <param name="F">frequency</param>
+    /// <param name="Rin">input resistance of the AC stage</param>
+    /// <param name="Rout">the output resistance of the AC stage</param>
+    /// <param name="Rc">collector resistance</param>
+    /// <param name="C1">value of separating tanks</param>
+    /// <param name="C2">values of separating tanks</param>
+    /// <param name="mode">Mode of your calculate(1. auto 2. manually)</param>
     internal class Program
     {
-        internal int mode;
-        internal string Varik { get; set; }
+        internal string YourVariant { get; set; }
         internal string Model { get; set; }
         internal int Ic_max { get; set; }
         internal int Vce_max { get; set; }
@@ -22,6 +38,11 @@ namespace TEK_3_KP
         internal double C1 { get; set; }
         internal double C2 { get; set; }
 
+        internal int mode;
+
+        /// <summary>
+        /// Start of program
+        /// </summary>
         internal void Start()
         {
             Console.Clear();
@@ -32,6 +53,9 @@ namespace TEK_3_KP
             Results();
         }
 
+        /// <summary>
+        /// Choose your mode of your calculate(1. auto 2. manually)
+        /// </summary>
         internal void EnterMode()
         {
             Console.WriteLine("Enter mode of imput: \n 1. auto \n 2. manually");
@@ -55,14 +79,19 @@ namespace TEK_3_KP
                 EnterMode();
             }
         }
-      
 
+        /// <summary>
+        /// Calculate collector resistance
+        /// </summary>
         internal void Calculate_Rc()
         {
             Rc = ((int)(E / (0.8 * (Ic_max / 1000.0)))) + 1;
             Console.WriteLine($"\nRc = {Rc}");
         }
 
+        /// <summary>
+        /// Takes input and output resistance of the AC stage from console
+        /// </summary>
         internal void Enter_Rin_Rout()
         {
             Console.Write("\nEnter Rin: ");
@@ -72,22 +101,19 @@ namespace TEK_3_KP
             Rout = TakeDouble_FromConsole();
         }
 
+        /// <summary>
+        /// Calculate values of separating tanks
+        /// </summary>
         internal void Calculate_C1_C2()
         {
             var V = 2.0 * 3.14 * F;
             C1 = (int)(10000.0 / (V * Rin)) + 1;
             C2 = (int)(1000.0 / (V * Rout)) + 1;
         }
-
-        public void FirstVariables(string model, int ic_max, int vce_max, int vbe_max, double p_max)
-        {
-            Model = model;
-            Ic_max = ic_max;
-            Vce_max = vce_max;
-            Vbe_max = vbe_max;
-            P_max = p_max;
-        }
-
+        
+        /// <summary>
+        /// Take variables from console if your mode == 1
+        /// </summary>
         internal void TakeVariables()
         {
             Console.Write("Enter E: ");
@@ -100,6 +126,9 @@ namespace TEK_3_KP
             F = TakeDouble_FromConsole();
         }
 
+        /// <summary>
+        /// Take number of your variant 
+        /// </summary>
         internal void TakeVariant()
         {
             Console.Write("Enter your variant: ");
@@ -124,9 +153,13 @@ namespace TEK_3_KP
             Variant(variant);
         }
 
+        /// <summary>
+        /// Calls variable assignment functions by your variant
+        /// </summary>
+        /// <param name="variant">array of numbers with your variant</param>
         private void Variant(int[] variant)
         {
-            Varik = String.Concat(variant);
+            YourVariant = String.Concat(variant);
             GetFirstVariables(variant[0]);
             GetSecondVariables(variant[1]);
             GetThirdVariables(variant[2]);
@@ -134,6 +167,22 @@ namespace TEK_3_KP
             InputVariablesMode_1();
         }
 
+        /// <summary>
+        /// variable assignment
+        /// </summary>
+        public void FirstVariables(string model, int ic_max, int vce_max, int vbe_max, double p_max)
+        {
+            Model = model;
+            Ic_max = ic_max;
+            Vce_max = vce_max;
+            Vbe_max = vbe_max;
+            P_max = p_max;
+        }
+
+        /// <summary>
+        /// Get variables by first number of your variant
+        /// </summary>
+        /// <param name="number">First number of your variant</param>
         private void GetFirstVariables(int number)
         {
             switch (number)
@@ -237,6 +286,10 @@ namespace TEK_3_KP
             }
         }
 
+        /// <summary>
+        /// Get variables by second number of your variant
+        /// </summary>
+        /// <param name="number">Second number of your variant</param>
         private void GetSecondVariables(int number)
         {
             switch (number)
@@ -280,6 +333,10 @@ namespace TEK_3_KP
             }
         }
 
+        /// <summary>
+        /// Get variables by third number of your variant
+        /// </summary>
+        /// <param name="number">Third number of your variant</param>
         private void GetThirdVariables(int number)
         {
             switch (number)
@@ -323,11 +380,14 @@ namespace TEK_3_KP
             }
         }
 
+        /// <summary>
+        /// Output to the console variables of your variant
+        /// </summary>
         internal void InputVariablesMode_1()
         {
             EnterMessageToConsole(
                 "Input values: " +
-                $"\nVariant = {Varik}" +
+                $"\nVariant = {YourVariant}" +
                 $"\nModel = {Model}" +
                 $"\nIc max = {Ic_max}" +
                 $"\nVce max = {Vce_max}" +
@@ -338,6 +398,9 @@ namespace TEK_3_KP
                 );
         }
 
+        /// <summary>
+        /// Output to the console the variables you entered
+        /// </summary>
         internal void InputVariablesMode_2()
         {
             EnterMessageToConsole(
@@ -349,6 +412,9 @@ namespace TEK_3_KP
 
         }
 
+        /// <summary>
+        /// Output the result of program
+        /// </summary>
         internal void Results()
         {
             Console.Clear();
@@ -373,7 +439,10 @@ namespace TEK_3_KP
             Start();
         }
 
-
+        /// <summary>
+        /// Output message to the console
+        /// </summary>
+        /// <param name="message">Your message</param>
         internal void EnterMessageToConsole(string message)
         {
             if (string.IsNullOrEmpty(message))
@@ -383,6 +452,10 @@ namespace TEK_3_KP
             Console.WriteLine(message);
         }
 
+        /// <summary>
+        /// Gets an int number from the console
+        /// </summary>
+        /// <returns>int32 number</returns>
         internal int TakeInt32_FromConsole()
         {
             while (true)
@@ -391,10 +464,17 @@ namespace TEK_3_KP
                 {
                     return variable;
                 }
-                EnterMessageToConsole("\nError: Enter integer number. Example: 3");
+                else
+                {
+                    EnterMessageToConsole("\nError: Enter integer number. Example: 3");
+                }
             }
         }
 
+        /// <summary>
+        /// Gets an double number from the console
+        /// </summary>
+        /// <returns>double number</returns>
         internal double TakeDouble_FromConsole()
         {
             while (true)

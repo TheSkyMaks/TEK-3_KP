@@ -1,0 +1,124 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TEK-3_KP</name>
+    </assembly>
+    <members>
+        <member name="T:TEK_3_KP.Program">
+            <summary>
+            Class "Program" calculate variables what you need for MatLab
+            </summary>
+            <param name="YourVariant">Variant of your coursework</param>
+            <param name="Model">Model of your transistor</param>
+            <param name="Ic_max">Maximum collector current</param>
+            <param name="Vce_max">Maximum collector-emitter voltage</param>
+            <param name="Vbe_max">Maximum base-emitter voltage</param>
+            <param name="P_max">Maximum power in the collector-emitter circuit</param>
+            <param name="E">EMF power supply</param>
+            <param name="F">frequency</param>
+            <param name="Rin">input resistance of the AC stage</param>
+            <param name="Rout">the output resistance of the AC stage</param>
+            <param name="Rc">collector resistance</param>
+            <param name="C1">value of separating tanks</param>
+            <param name="C2">values of separating tanks</param>
+            <param name="mode">Mode of your calculate(1. auto 2. manually)</param>
+        </member>
+        <member name="M:TEK_3_KP.Program.Start">
+            <summary>
+            Start of program
+            </summary>
+        </member>
+        <member name="M:TEK_3_KP.Program.EnterMode">
+            <summary>
+            Choose your mode of your calculate(1. auto 2. manually)
+            </summary>
+        </member>
+        <member name="M:TEK_3_KP.Program.Calculate_Rc">
+            <summary>
+            Calculate collector resistance
+            </summary>
+        </member>
+        <member name="M:TEK_3_KP.Program.Enter_Rin_Rout">
+            <summary>
+            Takes input and output resistance of the AC stage from console
+            </summary>
+        </member>
+        <member name="M:TEK_3_KP.Program.Calculate_C1_C2">
+            <summary>
+            Calculate values of separating tanks
+            </summary>
+        </member>
+        <member name="M:TEK_3_KP.Program.TakeVariables">
+            <summary>
+            Take variables from console if your mode == 1
+            </summary>
+        </member>
+        <member name="M:TEK_3_KP.Program.TakeVariant">
+            <summary>
+            Take number of your variant 
+            </summary>
+        </member>
+        <member name="M:TEK_3_KP.Program.Variant(System.Int32[])">
+            <summary>
+            Calls variable assignment functions by your variant
+            </summary>
+            <param name="variant">array of numbers with your variant</param>
+        </member>
+        <member name="M:TEK_3_KP.Program.FirstVariables(System.String,System.Int32,System.Int32,System.Int32,System.Double)">
+            <summary>
+            variable assignment
+            </summary>
+        </member>
+        <member name="M:TEK_3_KP.Program.GetFirstVariables(System.Int32)">
+            <summary>
+            Get variables by first number of your variant
+            </summary>
+            <param name="number">First number of your variant</param>
+        </member>
+        <member name="M:TEK_3_KP.Program.GetSecondVariables(System.Int32)">
+            <summary>
+            Get variables by second number of your variant
+            </summary>
+            <param name="number">Second number of your variant</param>
+        </member>
+        <member name="M:TEK_3_KP.Program.GetThirdVariables(System.Int32)">
+            <summary>
+            Get variables by third number of your variant
+            </summary>
+            <param name="number">Third number of your variant</param>
+        </member>
+        <member name="M:TEK_3_KP.Program.InputVariablesMode_1">
+            <summary>
+            Output to the console variables of your variant
+            </summary>
+        </member>
+        <member name="M:TEK_3_KP.Program.InputVariablesMode_2">
+            <summary>
+            Output to the console the variables you entered
+            </summary>
+        </member>
+        <member name="M:TEK_3_KP.Program.Results">
+            <summary>
+            Output the result of program
+            </summary>
+        </member>
+        <member name="M:TEK_3_KP.Program.EnterMessageToConsole(System.String)">
+            <summary>
+            Output message to the console
+            </summary>
+            <param name="message">Your message</param>
+        </member>
+        <member name="M:TEK_3_KP.Program.TakeInt32_FromConsole">
+            <summary>
+            Gets an int number from the console
+            </summary>
+            <returns>int32 number</returns>
+        </member>
+        <member name="M:TEK_3_KP.Program.TakeDouble_FromConsole">
+            <summary>
+            Gets an double number from the console
+            </summary>
+            <returns>double number</returns>
+        </member>
+    </members>
+</doc>
