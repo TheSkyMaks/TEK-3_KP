@@ -389,7 +389,7 @@ namespace TEK_3_KP
                 "Input values: " +
                 $"\nVariant = {YourVariant}" +
                 $"\nModel = {Model}" +
-                $"\nIc max = {Ic_max}" +
+                $"\nIc max = {Ic_max} * 10^-3 = {(double)Ic_max/1000.0}" +
                 $"\nVce max = {Vce_max}" +
                 $"\nVbe max = {Vbe_max}" +
                 $"\nPmax = {P_max}" +
@@ -429,7 +429,7 @@ namespace TEK_3_KP
 
             EnterMessageToConsole(
             $"\nRin = {Rin}" +
-            $"\nRin = {Rout}" +
+            $"\nRout = {Rout}" +
             "\n------------------------------------\n\nResults:" +
             $"\nRc = {Rc}" +
             $"\nC1 = {C1}" +
